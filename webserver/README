@@ -1,0 +1,2 @@
+sudo docker build -t gvacca/webrtc_nginx .
+sudo docker run -d -p 8000:8000 -v $PWD/website:/var/www/html/website gvacca/webrtc_nginx nginx

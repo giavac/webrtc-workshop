@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A simple WebRTC-based videochat</title>
+</head>
+<body>
+    <div id='mediaDiv'>
+        <h1>A simple WebRTC-based videochat</h1>
+
+        I am: <input type="text" id="user_id"><br>
+        <button id="registerButton">1. Register on server</button>
+        <br>
+        <br>
+        I want to talk to: <input type="text" id="remote_id"><br>
+        <button id="callButton">2. Call!</button>
+        <br>
+        <br>
+
+        My video: <video id="myVideo" width="320" height="240" autoplay></video>
+        <br>
+        <br>
+        Remote video: <video id="remoteVideo" autoplay></video>
+        <br>
+        <br>
+
+        <script src="js/webrtc_workshop_videochat.js">
+        </script>
+    </div>
+</body>
+</html>
