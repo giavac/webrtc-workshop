@@ -94,10 +94,10 @@ function gotTheirDescription(description) {
 function gotTheirStream(event) {
     if (window.URL) {
         // Convert stream into Blob URL, for Chrome
-        theirVideo.src = window.URL.createObjectURL(event.stream);
+        remoteVideo.src = window.URL.createObjectURL(event.stream);
     }
     else {
-        theirVideo.src = event.stream;
+        remoteVideo.src = event.stream;
     }
 }
 
