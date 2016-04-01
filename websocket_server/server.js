@@ -1,5 +1,45 @@
-var WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({ port: 8080 });
+const fs = require('fs');
+
+var ws_cfg = {
+  ssl: true,
+  port: 8080,
+  ssl_key: '/root/ssl.key',
+  ssl_cert: '/root/ssl.crt'
+};
+
+var processRequest = function(req, res) {
+    console.log("Request received.")
+};
+
+var httpServ = require('https');
+var app = null;
+
+app = httpServ.createServer({
+  key: fs.readFileSync(ws_cfg.ssl_key),
+  cert: fs.readFileSync(ws_cfg.ssl_cert)
+}, processRequest).listen(ws_cfg.port);
+
+
+var WebSocketServer = require('ws').Server, wss = new WebSocketServer( {server: app});
+
+
+
+
+
+
+
+
+
+
+
+/*var WebSocketServer = require('ws').Server
+  , wss = new WebSocketServer({ 
+    port: 8080,
+    ssl: true,
+    ssl_key: '/root/ssl.key',
+    ssl_cert: '/root/ssl.crt'
+ });
+*/
 
 var users = {};
 
