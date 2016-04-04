@@ -5,7 +5,7 @@
     var caller_id = "";
 
     // Change this to the right websocket IP address:port
-    var connection = new WebSocket('wss://xxxxxxxx5:8080');
+    var connection = new WebSocket('wss://xxx.xx.xx.xxx:8080');
 
     connection.onopen = function () {
         // connection is opened and ready to use
@@ -160,8 +160,6 @@ function successCallBack(stream) {
 var hangupButton = document.querySelector("button#hangupButton");
 hangupButton.onclick = function() {
     console.log("Clicked on Hangup");
-
-    // TODO do something
     myRTCPeerConnection.close();
     myVideo.pause();
 }
@@ -198,15 +196,27 @@ function gotTheirDescription(description) {
 
 function gotRemoteStream(event) {
     console.log("gotRemoteStream");
-    var remoteVideo = document.querySelector("video#remoteVideo");
+
+    var vid = document.createElement("video");
+    document.getElementById('mediaDiv').appendChild(vid);
+    console.log("Appended video element for remote video");
+
+
+   // var remoteVideo = document.querySelector("video#remoteVideo");
 
     if (window.URL) {
         // Convert stream into Blob URL, for Chrome
-        remoteVideo.src = window.URL.createObjectURL(event.stream);
+        vid.src = window.URL.createObjectURL(event.stream);
+        //remoteVideo.src = window.URL.createObjectURL(event.stream);
+        console.log("Attached incoming stream to video object, Chrome");
     }
     else {
-        remoteVideo.src = event.stream;
+        vid.src = event.stream;
+        //remoteVideo.src = event.stream;
+        console.log("Attached incoming stream to video object");
     }
+
+    vid.play();
 }
 
 function gotMyIceCandidate(event) {
