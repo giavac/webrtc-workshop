@@ -5,7 +5,7 @@
     var caller_id = "";
 
     // Change this to the right websocket IP address:port
-    var connection = new WebSocket('ws://111.11.11.11:8080');
+    var connection = new WebSocket('wss://xxxxxxxx5:8080');
 
     connection.onopen = function () {
         // connection is opened and ready to use
@@ -155,6 +155,15 @@ function successCallBack(stream) {
         myRTCPeerConnection.setRemoteDescription(rtcSessionDescription);
         myRTCPeerConnection.createAnswer(gotTheirDescription, onCreateAnswerError);
     }
+}
+
+var hangupButton = document.querySelector("button#hangupButton");
+hangupButton.onclick = function() {
+    console.log("Clicked on Hangup");
+
+    // TODO do something
+    myRTCPeerConnection.close();
+    myVideo.pause();
 }
 
 function errorCallBack(error) {
