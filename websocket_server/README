@@ -1,4 +1,6 @@
 sudo docker build -t gvacca/webrtc_workshop_nodejs .
 
+Ensure that in $PWD there are ssl.crt and ssl.key first.
+
 # Link files in current folder with /root, so there's no need to rebuild at each change
 sudo docker run -d -p 8080:8080 -v $PWD:/root gvacca/webrtc_workshop_nodejs
