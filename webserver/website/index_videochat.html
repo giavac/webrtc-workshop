@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Playing with RTCPeerConnections</title>
+<title>A simple WebRTC-based videochat</title>
 </head>
 <body>
     <div id='mediaDiv'>
-        <h1>Playing with RTCPeerConnections</h1>
+        <h1>A simple WebRTC-based videochat</h1>
 
         I am: <input type="text" id="user_id"><br>
         <button id="registerButton">1. Register on server</button>
         <br>
         <br>
         I want to talk to: <input type="text" id="remote_id"><br>
-        <button id="callButton">2. Call!</button>
+        <button id="callButton">2. Call</button>
+        <br>
+        <br>
+        Hang up<br>
+        <button id="hangupButton">3. Hang up</button>
         <br>
         <br>
 
-        <video id="myVideo" autoplay></video>
+        My video: <video id="myVideo" width="80" height="60" autoplay></video>
         <br>
         <br>
-        <video id="remoteVideo" autoplay></video>
+        Remote video: <video id="remoteVideo" width="80" height="60" autoplay></video>
         <br>
         <br>
 
